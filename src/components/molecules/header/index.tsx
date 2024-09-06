@@ -26,7 +26,6 @@ const Header = () => {
 						onChange={handleSearch}
 						error={!!errorData.search}
 						errorText={errorData.search}
-						onKeyDown={handleSubmit}
 					/>
 				</figure>
 				<div>

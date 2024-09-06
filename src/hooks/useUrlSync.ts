@@ -1,4 +1,3 @@
-"use client";
 
 import { useEffect, useState } from "react";
 
@@ -34,9 +33,8 @@ const useDynamicQuery = (initialOptions: DynamicQueryOptions = {}) => {
 			}
 		});
 
-		const newUrl = `${window.location.pathname}${
-			urlSearchParams.toString() ? `?${urlSearchParams.toString()}` : ""
-		}`;
+		const newUrl = `${window.location.pathname}${urlSearchParams.toString() ? `?${urlSearchParams.toString()}` : ""
+			}`;
 		window.history.replaceState({}, "", newUrl);
 	}, [options]);
 
