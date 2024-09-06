@@ -1,0 +1,67 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"extends": [
+		"plugin:@typescript-eslint/recommended",
+		"next/core-web-vitals",
+		"next",
+		"prettier"
+	],
+	"rules": {
+		"react/jsx-no-duplicate-props": "error",
+		"react/no-unused-prop-types": "error",
+		"react/require-default-props": 0,
+		"no-restricted-imports": ["error"],
+		"no-multiple-empty-lines": [
+			"error",
+			{
+				"max": 2,
+				"maxBOF": 1
+			}
+		],
+		"@typescript-eslint/ban-ts-comment": "error",
+		"@typescript-eslint/no-unused-vars": "error",
+		"react/prop-types": [
+			"error",
+			{
+				"ignore": ["children"]
+			}
+		],
+		"no-alert": "error",
+		"no-console": "error",
+		"no-debugger": "error",
+		"max-lines": [
+			"error",
+			{
+				"max": 636,
+				"skipBlankLines": true,
+				"skipComments": true
+			}
+		],
+		"react-hooks/exhaustive-deps": 0,
+		"import/newline-after-import": [
+			"error",
+			{
+				"count": 1
+			}
+		]
+	},
+	"overrides": [
+		{
+			"files": ["./src/app/examples/page.tsx"],
+			"rules": {
+				"max-lines": "off"
+			}
+		}
+	]
+}

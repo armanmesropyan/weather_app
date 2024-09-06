@@ -1,0 +1,87 @@
+$mobile: 375px;
+$mobile-x: 480px;
+$mini-tablet: 576px;
+$tablet: 769px;
+$tablet-x: 991px;
+$desktop: 1050px;
+$laptop: 1200px;
+$laptop-x: 1350px;
+$pc: 1430px;
+$pc-x: 1920px;
+
+$breakpoints: (
+	mobile: $mobile,
+	mobile-x: $mobile-x,
+	mini-tablet: $mini-tablet,
+	tablet: $tablet,
+	tablet-x: $tablet-x,
+	desktop: $desktop,
+	laptop: $laptop,
+	laptop-x: $laptop-x,
+	pc: $pc,
+	px-x: $pc-x
+);
+@mixin breakpoint($device) {
+	$width: map-get($breakpoints, $device);
+	@media (max-width: $width) {
+		@content;
+	}
+}
+
+@mixin svgFill($color, $size: false) {
+	svg {
+		@if $size {
+			width: $size;
+			height: $size;
+		}
+
+		path {
+			transition: all 0.5s;
+			fill: $color;
+			@content;
+		}
+	}
+}
+
+@mixin svgStroke($color, $size: false) {
+	svg {
+		@if $size {
+			width: $size;
+			height: $size;
+		}
+
+		path {
+			transition: all 0.5s;
+			stroke: $color;
+			@content;
+		}
+	}
+}
+
+@mixin container() {
+	max-width: 1920px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 80px;
+	width: 100%;
+	@media (min-width: 1700px) {
+		padding: 0 160px;
+	}
+
+	@include breakpoint(pc) {
+		padding: 0 50px;
+	}
+	@include breakpoint(laptop) {
+		padding: 0 50px;
+	}
+	@include breakpoint(desktop) {
+		padding: 0 35px;
+	}
+	@include breakpoint(tablet) {
+		padding: 0 30px;
+	}
+	@include breakpoint(mobile-x) {
+		padding: 0 16px;
+	}
+}
+

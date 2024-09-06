@@ -1,0 +1,107 @@
+@import '@/styles/vars';
+@import '@/styles/mixins';
+@import '@/styles/flex';
+@import '@/styles/fonts';
+
+.input {
+	width: 100%;
+	position: relative;
+
+	&__label {
+		font-weight: $font_weight_medium;
+		font-size: $font_size_desktop_s;
+		color: $black;
+		margin-bottom: 12px;
+		@include breakpoint(tablet-x) {
+			font-size: $font_size_mobile_s;
+		}
+		@include flex-align;
+
+		span {
+			color: $status_red;
+			margin-left: 4px;
+		}
+	}
+
+	&__box {
+		position: relative;
+
+		&__left_icon,
+		&__right_icon,
+		&__quantity {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			cursor: pointer;
+			transition: all $transition;
+			@include flex-center;
+		}
+	}
+
+	label {
+		display: block;
+		width: 100%;
+		position: relative;
+
+		input,
+		textarea {
+			border-radius: 5px;
+			width: 100%;
+			height: 54px;
+			padding: 0 10px;
+			font-size: $font_size_desktop_s;
+			background-color: $light_accent;
+			border: 1px solid transparent;
+			transition: $transition;
+			color: $black;
+
+			@include breakpoint(tablet-x) {
+				font-size: $font_size_mobile_s;
+			}
+
+			&::placeholder {
+				color: $dark_grey;
+			}
+		}
+
+		input {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+	}
+
+	&__error_text {
+		color: $status_red;
+		font-size: $font_size_desktop_xs;
+		text-align: left;
+		width: 100%;
+	}
+
+	&.disabled {
+		.input__label {
+			color: $dark_grey;
+
+			span {
+				color: $dark_grey;
+			}
+		}
+
+		input {
+			cursor: not-allowed;
+			color: $dark_grey;
+			background-color: $light_grey;
+		}
+
+		.input__box__left_icon,
+		.input__box__right_icon {
+			opacity: 0.6;
+		}
+	}
+
+	&.error {
+		input {
+			border: 1px solid $status_red;
+		}
+	}
+}

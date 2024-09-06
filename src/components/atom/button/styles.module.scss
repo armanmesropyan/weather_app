@@ -1,0 +1,132 @@
+@import '@/styles/vars';
+@import '@/styles/mixins';
+@import '@/styles/flex';
+@import '@/styles/fonts';
+
+.button {
+	border-radius: 1000px;
+	color: $black;
+	text-align: center;
+	border-radius: 1000px;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	font-weight: $font_weight_bold;
+	transition: $transition;
+
+	&__content {
+		&__text {
+			@include flex-justify-between-center;
+			transform: translateY(0);
+			transition: transform $transition;
+			gap: 5px;
+
+			svg {
+				path {
+					transition: $transition;
+				}
+			}
+		}
+	}
+
+	&.primary {
+		background-color: $accent;
+		border: 2px solid transparent;
+		color: $white;
+
+		.button__content__hover_text {
+			width: 100%;
+			justify-content: center;
+		}
+	}
+
+	&.secondary {
+		background-color: $white;
+		border: 2px solid $accent;
+
+		&:hover {
+			color: $accent;
+		}
+	}
+
+	&.big {
+		padding: $font_size_desktop_m $font_size_desktop_l;
+
+		.button__content__hover_text {
+			padding: $font_size_mobile_m $font_size_mobile_l;
+		}
+
+		&:hover {
+			.button__content__hover_text {
+				opacity: 1;
+				top: 0;
+			}
+		}
+	}
+
+	&.small {
+		padding: $font_size_desktop_xs $font_size_desktop_s;
+
+		.button__content__hover_text {
+			padding: $font_size_mobile_xs $font_size_mobile_s;
+		}
+
+		&:hover {
+			.button__content__hover_text {
+				opacity: 1;
+				top: 0;
+			}
+		}
+	}
+
+	&.active {
+		background: $accent_gradient;
+		border: 2px solid $accent;
+
+		&:hover {
+			color: inherit;
+		}
+	}
+
+	&.disabled {
+		background-color: $medium_grey;
+		border: 2px solid transparent;
+		cursor: not-allowed;
+
+		.button__content {
+			color: $dark_grey;
+		}
+
+		span {
+			svg {
+				cursor: not-allowed;
+
+				path {
+					stroke: $dark_grey;
+				}
+			}
+		}
+
+		&:hover {
+			color: inherit;
+
+			span {
+				svg {
+					cursor: not-allowed;
+
+					path {
+						stroke: $dark_grey;
+					}
+				}
+			}
+		}
+
+		&:active {
+			transform: none;
+		}
+	}
+
+	&:active {
+		transform: scale(0.9);
+	}
+}

@@ -1,0 +1,91 @@
+@import '@/styles/vars';
+@import '@/styles/mixins';
+@import '@/styles/flex';
+@import '@/styles/fonts';
+
+.content {
+    width: 100%;
+    @include flex-align-between;
+    background-color: $white;
+    &__main {
+        margin-top: 45px;
+        width: 70%;
+        text-align: center;
+        &__titles {
+            & > p {
+                &:first-child {
+                    font-size: $font_size_desktop_l;
+                    font-weight: $font_weight_normal;
+                    line-height: normal;
+                    margin-bottom: 10px;
+                }
+                &:last-child {
+                    font-size: $font_size_desktop_m;
+                    font-weight: $font_weight_bold;
+                    line-height: normal;
+                    color: $accent;
+                }
+            }
+        }
+        &__icon {
+            & > img {
+                width: 100px;
+                height: 100px;
+                object-fit: contain;
+                object-position: center;
+            }
+        }
+        &__info {
+            margin-top: 10px;
+            font-size: $font_size_desktop_l;
+            line-height: normal;
+        }
+    }
+    .forecast {
+        width: 250px;
+        &__item {
+            @include flex-align;
+            gap: 12px;
+            border-bottom: 1px solid $light_grey;
+
+            &__sub {
+                @include flex-align;
+                gap: $gap_small;
+                flex-grow: 1;
+            }
+            &__main {
+                width: 50px;
+
+                & > img {
+                    width: 50px;
+                    height: 50px;
+                    object-fit: contain;
+                    object-position: center;
+                }
+            }
+        }
+    }
+}
+
+.bottom_section {
+    padding: 100px 0;
+    width: 100%;
+    @include flex-center;
+    gap: $gap_large;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    &__item {
+        width: 140px;
+
+        border: 1px solid $light_grey;
+        @include flex-column;
+        &__info {
+            text-align: center;
+            
+        }
+        &__sub {
+            @include flex-center;
+            width: 100%;
+        }
+    }
+}

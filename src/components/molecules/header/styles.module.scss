@@ -1,0 +1,57 @@
+@import '@/styles/vars';
+@import '@/styles/mixins';
+@import '@/styles/flex';
+@import '@/styles/fonts';
+
+.header {
+    width: 100%;
+    padding: 24px;
+    gap: 55px;
+    @include flex-justify-between;
+    align-items: flex-start;
+    @include breakpoint(mobile-x) {
+        padding: 16px;
+    }
+    @include flex-center;
+    &__form {
+        width: 100%;
+        @include flex-end;
+        gap: $font_size_desktop_s;
+        &__input {
+            max-width: 700px;
+            width: 100%;
+        }
+    }
+    &__switcher {
+        @include flex-column-align-end;
+        min-width: max-content;
+        width: 100%;
+        max-width: 150px;
+
+        &__wrapper {
+            width: 100%;
+            background-color: $light_accent;
+            border-radius: 50px;
+            height: max-content;
+            max-width: max-content;
+            gap: $gap_small;
+            @include flex-align-end;
+            flex-direction: c;
+            padding: 20px;
+            &__child {
+                width: 100%;
+                @include flex-align;
+                gap: $gap_small;
+            }
+        }
+
+        &__error_text {
+            color: $status_red;
+            margin-top: 5px;
+            font-size: $font_size_desktop_xs;
+            text-align: left;
+            width: 100%;
+            max-width: 120px;
+        }
+    }
+}
